@@ -10,7 +10,7 @@ interface dataProps {
 
 export function BlockQuize({ props }: dataProps) {
     const { quest_list, quiz_active_numb, quiz_complited, quiz_full_numb, quiz_id, quiz_name } = props
-    console.log(quiz_name, quiz_active_numb, quiz_full_numb, quiz_id)
+
     const dispatch = useAppDispatch()
     
     function deleteQuizFunc ( ){
@@ -23,13 +23,12 @@ export function BlockQuize({ props }: dataProps) {
             <p className="text-center font-semibold text-xl">{quiz_name}</p>
             <div className="text-center p-5">
                 <span>Question </span>
-                <span className="font-semibold">{quiz_active_numb}</span>
+                <span className="font-semibold">{quiz_complited ? quiz_full_numb : quiz_active_numb}</span>
                 <span> of </span>
                 <span className="font-semibold">{quiz_full_numb}</span>
             </div>
             <div className="flex justify-between ">
                 <Link className="p-2 bg-mainGreen text-white rounded transition-all  hover:bg-darkGreen" to={`/quiz/${quiz_id}`}>Start</Link>
-                <Link className="p-2 bg-mainGreen text-white rounded transition-all  hover:bg-darkGreen" to={`/edit/${quiz_id}`}>Edit</Link>
             </div>
             
 

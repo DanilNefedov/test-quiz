@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { bodyListQuizT, initListQuizT } from "../type";
-import { deleteQuizeStorage, loadAllQuiz, saveToLocalStorage } from "../functions";
+import { deleteQuizeStorage, loadAllQuiz, } from "../functions";
 const _ = require('lodash');
 
 
@@ -18,7 +18,6 @@ export const fetchAllQuiz = createAsyncThunk<bodyListQuizT[], string, { rejectVa
     async function (data, { rejectWithValue }) {
         try {
             const quiz = await loadAllQuiz(data);
-            console.log(quiz)
             return quiz;
         } catch (error) {
             return rejectWithValue("Something's wrong.")
@@ -67,7 +66,6 @@ const listQuizSlice = createSlice({
 
                     if (!thisQuiz) {
                         const cloneData = _.cloneDeep(el)
-                        console.log(cloneData, el)
                         state.list_quiz.push(cloneData)
                     }
 
@@ -88,7 +86,6 @@ const listQuizSlice = createSlice({
                 const { quiz_id} = action.payload
                 state.status = false;
                 state.error = false;
-                console.log(action.payload)
                 state.list_quiz = state.list_quiz.filter((quiz) => quiz.quiz_id !== quiz_id);
 
             })

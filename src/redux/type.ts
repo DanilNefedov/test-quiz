@@ -16,6 +16,10 @@ export type initNewQuizT = initTemplateT & {
 }
 
 
+export type initStartQuizT = initTemplateT & {
+    list_quiz:bodyListQuizT | null
+}
+
 
 export interface bodyListQuizT {
     quiz_id:string,
@@ -37,24 +41,8 @@ export interface bodyQuestT{
 export interface bodyAnswerT{
     answer_id:string,
     answer_name:string,
-    answer_score:number
+    answer_score:number,
+    answer_user:boolean
 }
 
 
-// list_quiz:[{
-//         quiz_id:string,
-//         quiz_name:string,
-//         quiz_full_numb:number,
-//         quiz_active_numb:number,
-//         quiz_complited:boolean,
-//         quest_list:[{
-//             quest_complited:boolean,
-//             quest_id:string,
-//             quest_name:string,
-//             quest_answer:[{
-//                 answer_id:string,
-//                 answer_name:string,
-//                 answer_score:number
-//             }]
-//         }]
-//     }]
