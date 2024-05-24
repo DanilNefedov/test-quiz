@@ -26,18 +26,18 @@ export const router = createBrowserRouter([
       element: <Layout></Layout>,
       children:[
         {
-          path:'/',
+          path:'/test-quiz/',
           element:<App></App>,
           loader:() => store.dispatch(fetchAllQuiz('quiz')),
           
         },
         {
-          path:'/new-quiz',
+          path:'/test-quiz/new-quiz',
           element:<NewQuiz></NewQuiz>,
         },
        
         {
-          path:'/quiz/:id',
+          path:'/test-quiz/quiz/:id',
           element:<StartBlock></StartBlock>,
           loader:loaderStart
         }
